@@ -6,12 +6,13 @@ class CustomMainButton extends StatelessWidget {
     required this.text,
     required this.color,
     required this.textColor,
-    this.icon,
+    this.icon, this.onPressed,
   });
   final String text;
   final Color textColor;
   final Color color;
   bool? icon = false;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class CustomMainButton extends StatelessWidget {
               fixedSize: Size(double.infinity, 60),
               backgroundColor: color,
             ),
-            onPressed: () {},
+            onPressed: onPressed,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 5,
