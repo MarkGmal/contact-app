@@ -33,7 +33,7 @@ class _SelectImagePickerState extends State<SelectImagePicker> {
       child: Container(
         width: MediaQuery.of(context).size.width * 0.3,
         decoration: BoxDecoration(
-          border: Border.all(color: AppColorS.goldColor),
+          border: Border.all(color: AppColorS.goldColor,width: 1.5),
           borderRadius: BorderRadius.circular(24),
         ),
         child: _image == null
