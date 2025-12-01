@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: AppColorS.goldColor,
               onPressed: () {
                 showModalBottomSheet(
+                  isScrollControlled: true,
                   backgroundColor: AppColorS.darkBlueColor,
                   context: context,
                   builder: (context) => ModalBottom(),
