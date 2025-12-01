@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: AppColorS.darkBlueColor,
             context: context,
             builder: (context) => ModalBottom(),
+            isScrollControlled: true,
           );
         },
         child: Icon(Icons.add, color: AppColorS.darkBlueColor, size: 24),
