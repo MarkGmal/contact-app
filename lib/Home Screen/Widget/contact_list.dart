@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../Common/Consts/app_color.dart';
@@ -6,9 +5,14 @@ import '../../Common/Consts/app_text_style.dart';
 import '../../Common/Model/card_model.dart';
 import '../../Common/Widgets/custom_main_button.dart';
 
-class ContactList extends StatelessWidget {
+class ContactList extends StatefulWidget {
   const ContactList({super.key});
 
+  @override
+  State<ContactList> createState() => _ContactListState();
+}
+
+class _ContactListState extends State<ContactList> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -38,12 +42,13 @@ class ContactList extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.bottomLeft,
                     children: [
-                      Image.network(
-                        contact.image,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
+                      if (contact.image != null)
+                        Image.file(
+                          contact.image!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
                       Container(
                         margin: EdgeInsets.all(8),
                         padding: EdgeInsets.all(8),
@@ -96,6 +101,11 @@ class ContactList extends StatelessWidget {
                     SizedBox(
                       height: 31,
                       child: CustomMainButton(
+                        onPressed: () {
+                          setState(() {
+                            CardModel.cards.removeAt(index);
+                          });
+                        },
                         text: "Delete",
                         color: AppColorS.redColor,
                         icon: true,
